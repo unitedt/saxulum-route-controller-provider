@@ -15,43 +15,43 @@ class RouteControllerProvider implements ServiceProviderInterface
 {
     public function register(Container $app)
     {
-        $app['route_controller_manager'] = $app->share(function () use ($app) {
+        $app['route_controller_manager'] = function () use ($app) {
             return new RouteControllerManager(
                 $app['route_controller_paths'],
                 $app['route_controller_cache'],
                 $app['route_controller_cache_filename']
             );
-        });
+        };
 
-        $app['route_controller_paths'] = $app->share(function () {
+        $app['route_controller_paths'] = function () {
             $paths = array();
 
             return $paths;
-        });
+        };
 
         $app['route_controller_cache'] = null;
 
         $app['route_controller_cache_filename'] = 'saxulum-route-controller.php';
 
-        $app['route_controller_annotation_reader'] = $app->share(function () {
+        $app['route_controller_annotation_reader'] = function () {
             return new AnnotationReader();
-        });
+        };
 
-        $app['route_controller_annotation_manager'] = $app->share(function ($app) {
+        $app['route_controller_annotation_manager'] = function ($app) {
             return new AnnotationManager($app['route_controller_annotation_reader']);
-        });
+        };
 
-        $app['route_controller_service_manager'] = $app->share(function () {
+        $app['route_controller_service_manager'] = function () {
             return new ServiceManager();
-        });
+        };
 
-        $app['route_controller_route_manager'] = $app->share(function () {
+        $app['route_controller_route_manager'] = function () {
             return new RouteManager();
-        });
+        };
 
-        $app['route_controller_pretty_printer'] = $app->share(function () {
+        $app['route_controller_pretty_printer'] = function () {
             return new Standard();
-        });
+        };
     }
 
     public function boot(Container $app)
