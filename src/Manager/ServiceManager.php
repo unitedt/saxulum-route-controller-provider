@@ -136,22 +136,14 @@ class ServiceManager
                 new Variable('app'),
                 new String_($classInfo->getServiceId())
             ),
-            new MethodCall(
-                new Variable('app'),
-                'share',
-                array(
-                    new Arg(
-                        new Closure(
-                            array(
-                                'uses' => array(
-                                    new ClosureUse('app')
-                                ),
-                                'stmts' => $statements
-                            )
-                        )
+            new Closure(
+               array(
+                    'uses' => array(
+                        new ClosureUse('app')
+                    ),
+                        'stmts' => $statements
                     )
-                )
-            )
+               )
         );
     }
 }
