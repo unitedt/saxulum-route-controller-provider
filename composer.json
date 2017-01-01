@@ -1,5 +1,5 @@
 {
-    "name": "saxulum/saxulum-route-controller-provider",
+    "name": "unitedt/saxulum-route-controller-provider",
     "description": "Saxulum Route/Controller Provider",
     "keywords": ["saxulum", "silex", "route", "controller"],
     "license": "MIT",
@@ -14,7 +14,7 @@
         "doctrine/annotations": "~1.1",
         "nikic/php-parser": "~1.2,>=1.2.1",
         "saxulum/saxulum-annotation-manager": "~1.2",
-        "silex/silex": "~1.1",
+        "silex/silex": "~1.1|~2",
         "symfony/finder": "~2.3|~3.0"
     },
     "require-dev": {
