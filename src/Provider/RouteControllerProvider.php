@@ -8,12 +8,12 @@ use Saxulum\AnnotationManager\Manager\AnnotationManager;
 use Saxulum\RouteController\Manager\RouteControllerManager;
 use Saxulum\RouteController\Manager\RouteManager;
 use Saxulum\RouteController\Manager\ServiceManager;
-use Silex\Application;
+use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
 class RouteControllerProvider implements ServiceProviderInterface
 {
-    public function register(Application $app)
+    public function register(Container $app)
     {
         $app['route_controller_manager'] = $app->share(function () use ($app) {
             return new RouteControllerManager(
@@ -54,7 +54,7 @@ class RouteControllerProvider implements ServiceProviderInterface
         });
     }
 
-    public function boot(Application $app)
+    public function boot(Container $app)
     {
         /** @var RouteControllerManager $routeControllerManager */
         $routeControllerManager = $app['route_controller_manager'];
