@@ -9,7 +9,7 @@ use Saxulum\RouteController\Manager\RouteControllerManager;
 use Saxulum\RouteController\Manager\RouteManager;
 use Saxulum\RouteController\Manager\ServiceManager;
 use Silex\Application;
-use Silex\ServiceProviderInterface;
+use Pimple\ServiceProviderInterface;
 
 class RouteControllerProvider implements ServiceProviderInterface
 {
