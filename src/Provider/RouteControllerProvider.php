@@ -10,8 +10,10 @@ use Saxulum\RouteController\Manager\RouteManager;
 use Saxulum\RouteController\Manager\ServiceManager;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
+use Silex\Application;
+use Silex\Api\BootableProviderInterface;
 
-class RouteControllerProvider implements ServiceProviderInterface
+class RouteControllerProvider implements ServiceProviderInterface, BootableProviderInterface
 {
     public function register(Container $app)
     {
@@ -54,7 +56,7 @@ class RouteControllerProvider implements ServiceProviderInterface
         };
     }
 
-    public function boot(Container $app)
+    public function boot(Application $app)
     {
         /** @var RouteControllerManager $routeControllerManager */
         $routeControllerManager = $app['route_controller_manager'];
